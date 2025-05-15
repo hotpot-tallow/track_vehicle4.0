@@ -1,0 +1,2 @@
+apriltag_ros:test
+-DCATKIN_DEVEL_PREFIX=/home/cwkj/workspace/track_vehicle4.0/devel -DCMAKE_INSTALL_PREFIX=/home/cwkj/workspace/track_vehicle4.0/install -G Unix Makefiles

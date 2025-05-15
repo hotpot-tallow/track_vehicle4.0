@@ -1,0 +1,4 @@
+<launch>
+  <rosparam command="load" file="$(find test)/config/PID.yaml"/>
+  <node pkg="test" type="mytest" name="mytest" output="screen"/>
+</launch>

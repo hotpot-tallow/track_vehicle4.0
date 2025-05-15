@@ -1,0 +1,3 @@
+<launch>
+ <node pkg="test" type="test_apriltag" name="test_apriltag" output="screen"/>
+</launch>
