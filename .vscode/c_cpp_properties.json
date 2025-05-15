@@ -6,12 +6,12 @@
                 "limitSymbolsToIncludedHeaders": false
             },
             "includePath": [
-                "/home/cwkj/workspace/track_vehicle3.2/devel/include/**",
+                "/home/cwkj/workspace/track_vehicle4.0/devel/include/**",
                 "/home/cwkj/catkin_ws/devel/include/**",
                 "/opt/ros/noetic/include/**",
-                "/home/cwkj/workspace/track_vehicle3.2/src/apriltag_ros/include/**",
+                "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/include/**",
                 "/home/cwkj/mavros_ws/src/offboard/include/**",
-                "/home/cwkj/workspace/track_vehicle3.2/src/test/include/**",
+                "/home/cwkj/workspace/track_vehicle4.0/src/test/include/**",
                 "/usr/include/**",
                 "/usr/include/eigen3",
                 "/opt/ros/noetic/include"
