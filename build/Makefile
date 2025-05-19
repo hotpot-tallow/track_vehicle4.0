@@ -1260,6 +1260,19 @@ _apriltag_ros_generate_messages_check_deps_AnalyzeSingleImage/fast:
 .PHONY : _apriltag_ros_generate_messages_check_deps_AnalyzeSingleImage/fast
 
 #=============================================================================
+# Target rules for targets named kf_tracker_node
+
+# Build rule for target.
+kf_tracker_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 kf_tracker_node
+.PHONY : kf_tracker_node
+
+# fast build rule for target.
+kf_tracker_node/fast:
+	$(MAKE) -f test/CMakeFiles/kf_tracker_node.dir/build.make test/CMakeFiles/kf_tracker_node.dir/build
+.PHONY : kf_tracker_node/fast
+
+#=============================================================================
 # Target rules for targets named trajectory_msgs_generate_messages_py
 
 # Build rule for target.
@@ -1772,6 +1785,7 @@ help:
 	@echo "... _apriltag_ros_generate_messages_check_deps_AprilTagDetectionArray"
 	@echo "... apriltag_ros_generate_messages_nodejs"
 	@echo "... _apriltag_ros_generate_messages_check_deps_AnalyzeSingleImage"
+	@echo "... kf_tracker_node"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... geographic_msgs_generate_messages_nodejs"
 	@echo "... geographic_msgs_generate_messages_py"

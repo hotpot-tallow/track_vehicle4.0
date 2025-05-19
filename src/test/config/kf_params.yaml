@@ -1,0 +1,9 @@
+dt_pred: 0.05
+q_std: 1.0
+r_std: 0.1
+state_buffer_length: 40
+tracking_frame_id: "base_link"
+do_kf_update_step: true
+measurement_off_time: 2.0
+print_debug_msg: false
+

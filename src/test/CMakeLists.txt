@@ -146,7 +146,12 @@ add_executable(mytest
  )
 add_executable(test_apriltag
  src/test_apriltag.cpp
+ src/PID_controller.cpp
  )
+add_executable(kf_tracker_node
+ src/kf_tracker_node.cpp
+ src/kf.cpp
+)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -160,6 +165,7 @@ add_executable(test_apriltag
 ## Specify libraries to link a library or executable target against
 target_link_libraries(mytest ${catkin_LIBRARIES})
 target_link_libraries(test_apriltag ${catkin_LIBRARIES})
+target_link_libraries(kf_tracker_node ${catkin_LIBRARIES})
 #############
 ## Install ##
 #############

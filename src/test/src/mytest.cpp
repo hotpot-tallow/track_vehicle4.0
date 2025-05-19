@@ -21,7 +21,7 @@
 #include "D_LG_EKF.h"
 #include "ESKF_param.h"
 #include "camera2uav.h"
-
+#include "kf.h"
 
 
 // 一些全局变量
@@ -35,7 +35,7 @@ double curH;
 double curX;
 double curY;
 //小车速度
-double ugv_vel;
+double uav_last_velx,uav_last_vely;
 // 无人机是否已经稳定在空中的标志
 bool start = false;
 bool tag_detected = false;
@@ -53,6 +53,8 @@ mavros_msgs::State current_mode;
 PID_Controller *pos_controll;
 //创建TF转换的指针
 Camera2UAV *camera2uav;
+//创建卡尔曼滤波器
+KFTracker *kftracker;
 //速度发布者
 ros::Publisher local_vec_pub;
 //位置发布者
@@ -79,6 +81,11 @@ cv::Point2d pixel;
 enum State { CRUISE, ROTATE, DESCEND, MDA, LAND};
 State current_state = CRUISE;
 
+double vehicle_velocity(const double& dx,const double& dy){
+    double vehicle_speed = sqrt(dx*dx+dy*dy);
+    return vehicle_speed;
+} 
+
 void yaw_adjustment(mavros_msgs::PositionTarget& yaw_set,const double& yaw_angle){
     yaw_set.coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
     yaw_set.type_mask = 
@@ -103,7 +110,7 @@ void yaw_adjustment(mavros_msgs::PositionTarget& yaw_set,const double& yaw_angle
 //apriltag码订阅回调函数
 void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg) 
 {
-    static double x, y, z, xp, yp;
+    static double x, y, z, dx0, dx1, dy0, dy1, dx, dy;
     tf2::Quaternion quat;
     static mavros_msgs::PositionTarget yaw_set;
     geometry_msgs::Twist speed_set;
@@ -112,7 +119,7 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
     geometry_msgs::PoseStamped target_pose;
     static ros::Time last_find_time; 
     static double z_descend = -0.3;
-    static int number = 0;
+    static int number = 0,dot = 0;
     static double error_x, error_y, error_z,error_yaw;
     static double roll, pitch, yaw;
     static double x_last, y_last, z_last;
@@ -182,12 +189,16 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                 roll = euler_angles[2];
                 yaw_angle = yaw * (180 / M_PI);
                 ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
-                if (fabs(yaw_angle) > 8){
+                if (fabs(yaw_angle) > 8 || fabs(yaw_angle) < 172){
                 yaw_adjustment(yaw_set,yaw_angle) ; 
                 }
                 speed_set = pos_controll->control(error_x,error_y,0); 
-                speed_set.linear.x += (speed_set.linear.x/(sqrt(speed_set.linear.x*speed_set.linear.x+speed_set.linear.y*speed_set.linear.y))) * ugv_vel;
-                speed_set.linear.y += (speed_set.linear.y/(sqrt(speed_set.linear.x*speed_set.linear.x+speed_set.linear.y*speed_set.linear.y))) * ugv_vel; 
+                speed_set.linear.x += uav_last_velx;
+                speed_set.linear.y += uav_last_vely; 
+                uav_last_velx = speed_set.linear.x;
+                uav_last_vely = speed_set.linear.y;
+                yaw_set.velocity.x = speed_set.linear.x;
+                yaw_set.velocity.y = speed_set.linear.y;
                 //ROS_INFO("无人机速度,x = %.3f,y = %.3f,z = %.3f",speed_set.linear.x,speed_set.linear.y,speed_set.linear.z);
                 yaw_set.velocity.x = speed_set.linear.x;
                 yaw_set.velocity.y = speed_set.linear.y;
@@ -208,6 +219,7 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                     if(number > 20){
                        current_state = DESCEND; 
                        number = 0;
+                       dot = 0;
                     }
                 }
                 break; 
@@ -254,13 +266,15 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                 roll = euler_angles[2];
                 yaw_angle = yaw * (180 / M_PI);
                 ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
-                if (abs(yaw_angle) > 8){
+                if (abs(yaw_angle) > 8 || fabs(yaw_angle) < 172){
                 yaw_adjustment(yaw_set,yaw_angle); 
                 }
                 speed_set = pos_controll->control(error_x,error_y,0);
-                speed_set.linear.x += (speed_set.linear.x/(sqrt(speed_set.linear.x*speed_set.linear.x+speed_set.linear.y*speed_set.linear.y))) * ugv_vel;
-                speed_set.linear.y += (speed_set.linear.y/(sqrt(speed_set.linear.x*speed_set.linear.x+speed_set.linear.y*speed_set.linear.y))) * ugv_vel; 
+                speed_set.linear.x += uav_last_velx;
+                speed_set.linear.y += uav_last_vely; 
                 speed_set.linear.z = -0.3;
+                uav_last_velx = speed_set.linear.x;
+                uav_last_vely = speed_set.linear.y;
                 yaw_set.velocity.x = speed_set.linear.x;
                 yaw_set.velocity.y = speed_set.linear.y;
                 yaw_set.velocity.z = speed_set.linear.z;
@@ -293,6 +307,20 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                     y = -(sorted_detections[0].pose.pose.pose.position.x);
                     x = -(sorted_detections[0].pose.pose.pose.position.y);
                     z = -(sorted_detections[0].pose.pose.pose.position.z);
+                    // if(dot = 0){
+                    //     double dx0 = x;
+                    //     double dy0 = y;
+                    // }
+                    // dot++;
+                    // if(dot = 10){
+                    //     double dx1 = x;
+                    //     double dy1 = y;
+                    //     dx = dx1 - dx0;
+                    //     dy = dy1 - dy0;
+                    //     dot = 0;
+                    //     ugv_vel = vehicle_velocity(dx,dy);
+                    // }
+                    // ROS_INFO("小车速度: %.3f", ugv_vel);
                     attitude.x() = (sorted_detections[0].pose.pose.pose.orientation.x);
                     attitude.y() = (sorted_detections[0].pose.pose.pose.orientation.y);
                     attitude.z() = (sorted_detections[0].pose.pose.pose.orientation.z);
@@ -312,13 +340,15 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                     roll = euler_angles[2];
                     yaw_angle = yaw * (180 / M_PI);
                     ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
-                    if (abs(yaw_angle) > 8){
+                    if (fabs(yaw_angle) > 8 || fabs(yaw_angle) < 172){
                     yaw_adjustment(yaw_set,yaw_angle); 
                     }
                     geometry_msgs::Twist speed_set;
                     speed_set = pos_controll->control(error_x,error_y,error_z); 
-                    speed_set.linear.x += (speed_set.linear.x/(sqrt(speed_set.linear.x*speed_set.linear.x+speed_set.linear.y*speed_set.linear.y))) * ugv_vel;
-                    speed_set.linear.y += (speed_set.linear.y/(sqrt(speed_set.linear.x*speed_set.linear.x+speed_set.linear.y*speed_set.linear.y))) * ugv_vel;
+                    speed_set.linear.x += uav_last_velx;
+                    speed_set.linear.y += uav_last_vely; 
+                    uav_last_velx = speed_set.linear.x;
+                    uav_last_vely = speed_set.linear.y;
                     yaw_set.velocity.x = speed_set.linear.x;
                     yaw_set.velocity.y = speed_set.linear.y;
                     yaw_set.velocity.z = speed_set.linear.z;
@@ -380,10 +410,10 @@ void local_pose_cb(const geometry_msgs::PoseStamped::ConstPtr& msg){
     curH = msg->pose.position.z;
 }
 
-void ugv_vel_cb(const geometry_msgs::Twist::ConstPtr& msg){
-    ugv_vel = msg->linear.x;
-    ROS_INFO_THROTTLE(1.0, "小车速度: %.3f", ugv_vel);
-}
+// void ugv_vel_cb(const geometry_msgs::Twist::ConstPtr& msg){
+//     ugv_vel = msg->linear.x;
+//     ROS_INFO_THROTTLE(1.0, "小车速度: %.3f", ugv_vel);
+// }
 
 
 void image_cb(const sensor_msgs::Image::ConstPtr& msg){
@@ -422,12 +452,12 @@ int main(int argc, char **argv)
             ("mavros/local_position/pose", 10, local_pose_cb);
     ros::Subscriber image_sub = nh.subscribe<sensor_msgs::Image>
             ("/tag_detections_image", 1, image_cb);
-    ros::Subscriber ugv_sub = nh.subscribe<geometry_msgs::Twist>
-            ("/ugv_0/cmd_vel",10,ugv_vel_cb);
+    // ros::Subscriber ugv_sub = nh.subscribe<geometry_msgs::Twist>
+    //         ("/ugv_0/cmd_vel",10,ugv_vel_cb);
 
 
     //the setpoint publishing rate MUST be faster than 2Hz
-    ros::Rate rate(10.0);//设置循环频率，每秒循环10次
+    ros::Rate rate(20.0);//设置循环频率，每秒循环10次
     pos_controll = new PID_Controller();//初始化PID控制器
     camera2uav = new Camera2UAV();//初始化tf转换器
 

@@ -1,3 +1,13 @@
 <launch>
- <node pkg="test" type="test_apriltag" name="test_apriltag" output="screen"/>
+
+  	<rosparam command="load" file="$(find test)/config/PID.yaml"/>
+ 	<node pkg="test" type="test_apriltag" name="test_apriltag" output="screen"/>
+ 	<node pkg="test" type="kf_tracker_node" name="kf_tracker_node" output="screen"/>
+	<!-- IMPORTANT. TF from drone to camera frames assuming camera is static-->
+	<arg name="drone_frame" default="base_link"/>
+	<node pkg="tf" type="static_transform_publisher" name="tf_drone_to_camera" args="0 0 0 0 3.14159 1.5708 $(arg drone_frame) usb_cam 33"/>
+	<!-- World to map -->
+    	<node pkg="tf" type="static_transform_publisher" name="tf_world_to_map" args="0 0 0 0 0 0 world map 33"/>
+	<!-- World to odom -->
+    	<node pkg="tf" type="static_transform_publisher" name="tf_world_to_odom" args="0 0 0 0 0 0 map odom 33"/>
 </launch>

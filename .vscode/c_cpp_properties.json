@@ -14,7 +14,8 @@
                 "/home/cwkj/workspace/track_vehicle4.0/src/test/include/**",
                 "/usr/include/**",
                 "/usr/include/eigen3",
-                "/opt/ros/noetic/include"
+                "/opt/ros/noetic/include",
+                "/usr/include/opencv4"
             ],
             "name": "ROS",
             "intelliSenseMode": "gcc-x64",

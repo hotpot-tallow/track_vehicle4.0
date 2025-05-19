@@ -17,14 +17,14 @@ offset_docking_z: 0
 pos_kp_x: 0.60
 pos_ki_x: 0.002
 pos_kd_x: 0.02
-pos_ol_x: 0.70
-pos_sp_x: 0.30
+pos_ol_x: 5.0
+pos_sp_x: 1.0
 
 pos_kp_y: 0.45
 pos_ki_y: 0.001
 pos_kd_y: 0.02
-pos_ol_y: 0.40
-pos_sp_y: 0.30
+pos_ol_y: 5.0
+pos_sp_y: 1.0
 
 height_kp: 0.50
 height_ki: 0.001
