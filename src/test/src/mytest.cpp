@@ -188,25 +188,11 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                 pitch = euler_angles[1];
                 roll = euler_angles[2];
                 yaw_angle = yaw * (180 / M_PI);
-<<<<<<< HEAD
-                ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
-=======
                 //ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
                 if (fabs(yaw_angle) > 8 || fabs(yaw_angle) < 172){
                 yaw_adjustment(yaw_set,yaw_angle) ; 
                 }
                 speed_set = pos_controll->control(error_x,error_y,0); 
-<<<<<<< HEAD
-                speed_set.linear.x += uav_last_velx;
-                speed_set.linear.y += uav_last_vely; 
-                uav_last_velx = speed_set.linear.x;
-                uav_last_vely = speed_set.linear.y;
-                yaw_set.velocity.x = speed_set.linear.x;
-                yaw_set.velocity.y = speed_set.linear.y;
-                //ROS_INFO("无人机速度,x = %.3f,y = %.3f,z = %.3f",speed_set.linear.x,speed_set.linear.y,speed_set.linear.z);
-=======
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
                 yaw_set.velocity.x = speed_set.linear.x;
                 yaw_set.velocity.y = speed_set.linear.y;
                 yaw_set.coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
@@ -278,15 +264,7 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                 yaw_adjustment(yaw_set,yaw_angle); 
                 }
                 speed_set = pos_controll->control(error_x,error_y,0);
-<<<<<<< HEAD
-                speed_set.linear.x += uav_last_velx;
-                speed_set.linear.y += uav_last_vely; 
-                speed_set.linear.z = -0.3;
-                uav_last_velx = speed_set.linear.x;
-                uav_last_vely = speed_set.linear.y;
-=======
                 speed_set.linear.z = -0.30;
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
                 yaw_set.velocity.x = speed_set.linear.x;
                 yaw_set.velocity.y = speed_set.linear.y;
                 yaw_set.velocity.z = speed_set.linear.z;
@@ -351,23 +329,12 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                     pitch = euler_angles[1];
                     roll = euler_angles[2];
                     yaw_angle = yaw * (180 / M_PI);
-<<<<<<< HEAD
-                    ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
-=======
                     //ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
                     if (fabs(yaw_angle) > 8 || fabs(yaw_angle) < 172){
                     yaw_adjustment(yaw_set,yaw_angle); 
                     }
                     geometry_msgs::Twist speed_set;
                     speed_set = pos_controll->control(error_x,error_y,error_z); 
-<<<<<<< HEAD
-                    speed_set.linear.x += uav_last_velx;
-                    speed_set.linear.y += uav_last_vely; 
-                    uav_last_velx = speed_set.linear.x;
-                    uav_last_vely = speed_set.linear.y;
-=======
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
                     yaw_set.velocity.x = speed_set.linear.x;
                     yaw_set.velocity.y = speed_set.linear.y;
                     yaw_set.velocity.z = -0.25;

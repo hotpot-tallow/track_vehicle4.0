@@ -21,16 +21,9 @@
 #include "D_LG_EKF.h"
 #include "ESKF_param.h"
 #include "camera2uav.h"
-<<<<<<< HEAD
-#include "kf.h"
 
 
 
-=======
-
-
-
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
 // 一些全局变量
 
 // 悬空高度（追踪小车的高度）
@@ -64,11 +57,6 @@ Camera2UAV *camera2uav;
 ros::Publisher local_vec_pub;
 //位置发布者
 ros::Publisher local_pos_pub;
-<<<<<<< HEAD
-//卡尔曼滤波器传感器位置发布者
-ros::Publisher kf_pose_pub;
-=======
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
 //偏航角发布者
 ros::Publisher yaw_pub;
 //设置降落模式
@@ -122,20 +110,11 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
 {
     static double x, y, z, dx0, dx1, dy0, dy1, dx, dy;
     tf2::Quaternion quat;
-<<<<<<< HEAD
-    
-    
-    mavros_msgs::SetMode land_set_mode;
-    land_set_mode.request.custom_mode = "AUTO.LAND";
-    geometry_msgs::PoseStamped target_pose;
-    geometry_msgs::PoseStamped pose_msg;
-=======
     static mavros_msgs::PositionTarget yaw_set;
     static geometry_msgs::Twist speed_set;
     mavros_msgs::SetMode land_set_mode;
     land_set_mode.request.custom_mode = "AUTO.LAND";
     geometry_msgs::PoseStamped target_pose;
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
     static ros::Time last_find_time; 
     static double z_descend = -0.3;
     static int number = 0,dot = 0;
@@ -143,17 +122,6 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
     static double roll, pitch, yaw;
     static double x_last, y_last, z_last;
     static bool run = false;
-<<<<<<< HEAD
-   
-
-    if(!msg->detections.empty()) 
-    {
-        x_last = curX;
-        y_last = curY;
-        z_last = curH;
-        tag_detected = true;
-
-=======
     double yaw_angle,roll_angle,pitch_angle;
 
     if(!msg->detections.empty()) 
@@ -163,7 +131,6 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
         z_last = curH;
         tag_detected = true;
 
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
         last_find_time = ros::Time::now();
         std::vector<apriltag_ros::AprilTagDetection> sorted_detections = msg->detections;
 
@@ -199,19 +166,6 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                 attitude.y() = (target.pose.pose.pose.orientation.y);
                 attitude.z() = (target.pose.pose.pose.orientation.z);
                 attitude.w() = (target.pose.pose.pose.orientation.w);
-<<<<<<< HEAD
-                pose_msg.header.frame_id = "/base_link";
-                pose_msg.header.stamp = ros::Time::now();
-                pose_msg.pose.position.x = x;
-                pose_msg.pose.position.y = y;
-                pose_msg.pose.position.z = z;
-                pose_msg.pose.orientation.x = target.pose.pose.pose.orientation.x;
-                pose_msg.pose.orientation.y = target.pose.pose.pose.orientation.y;
-                pose_msg.pose.orientation.z = target.pose.pose.pose.orientation.z;
-                pose_msg.pose.orientation.w = target.pose.pose.pose.orientation.w;
-                kf_pose_pub.publish(pose_msg);
-=======
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
                 ROS_INFO("发现大目标,目标的x坐标:%.3f,目标的y坐标:%.3f,目标的z坐标:%.3f",x,y,z);
                 error_x = -x;
                 error_y = -y;
@@ -226,8 +180,6 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                 // roll_angle = roll * (180 / M_PI);
                 // pitch_angle = pitch * (180 / M_PI);
                 // yaw_angle = yaw * (180 / M_PI) + 90;
-<<<<<<< HEAD
-=======
                 Eigen::Matrix3d rotation_matrix = attitude.toRotationMatrix();
                 Eigen::Vector3d euler_angles = rotation_matrix.eulerAngles(2, 1, 0);  // ZYX 顺序，即 yaw-pitch-roll
                 yaw = euler_angles[0];
@@ -257,7 +209,6 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                         mavros_msgs::PositionTarget::IGNORE_YAW;
                 yaw_pub.publish(yaw_set);
                 //local_vec_pub.publish(speed_set);
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
                 last_find_time = ros::Time::now();
                 break; 
             }
@@ -277,18 +228,6 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
 
 void state_cb(const mavros_msgs::State::ConstPtr& msg){//回调函数，将msg中的状态储存在current_state中
     current_mode = *msg;
-<<<<<<< HEAD
-}
-
-void imu_cb(const sensor_msgs::Imu::ConstPtr& msg){
-    attitude_FCU = Eigen::Quaterniond(msg->orientation.w, msg->orientation.x, msg->orientation.y, msg->orientation.z);
-}
-
-void local_pose_cb(const geometry_msgs::PoseStamped::ConstPtr& msg){
-    curX = msg->pose.position.x;
-    curY = msg->pose.position.y;
-    curH = msg->pose.position.z;
-=======
 }
 
 void imu_cb(const sensor_msgs::Imu::ConstPtr& msg){
@@ -317,7 +256,6 @@ void image_cb(const sensor_msgs::Image::ConstPtr& msg){
     cv::imshow("Tracking Boundary", image);
     cv::waitKey(1);
 
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
 }
 int main(int argc, char **argv)
 {
@@ -347,100 +285,12 @@ int main(int argc, char **argv)
     // ros::Subscriber ugv_sub = nh.subscribe<geometry_msgs::Twist>
     //         ("/ugv_0/cmd_vel",10,ugv_vel_cb);
 
-<<<<<<< HEAD
-void control_cb(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg){
-    double error_x,error_y,error_z;
-    static mavros_msgs::PositionTarget yaw_set;
-    double yaw_angle,roll_angle,pitch_angle;
-    static geometry_msgs::Twist speed_set;
-    error_x = -msg->pose.pose.position.x;
-    error_y = -msg->pose.pose.position.y;
-    Eigen::Matrix3d rotation_matrix = attitude.toRotationMatrix();
-    Eigen::Vector3d euler_angles = rotation_matrix.eulerAngles(2, 1, 0);  // ZYX 顺序，即 yaw-pitch-roll
-    yaw = euler_angles[0];
-    pitch = euler_angles[1];
-    roll = euler_angles[2];
-    yaw_angle = yaw * (180 / M_PI);
-    ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
-    if (fabs(yaw_angle) > 8 || fabs(yaw_angle) < 172){
-    yaw_adjustment(yaw_set,yaw_angle) ; 
-    }
-    speed_set = pos_controll->control(error_x,error_y,0);
-    yaw_set.velocity.x = speed_set.linear.x;
-    yaw_set.velocity.y = speed_set.linear.y;
-    ROS_INFO("无人机速度,x = %.3f,y = %.3f",yaw_set.velocity.x,yaw_set.velocity.y);
-    yaw_set.coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
-    yaw_set.type_mask = 
-            mavros_msgs::PositionTarget::IGNORE_AFX |
-            mavros_msgs::PositionTarget::IGNORE_AFY |
-            mavros_msgs::PositionTarget::IGNORE_AFZ |
-            mavros_msgs::PositionTarget::IGNORE_PX |
-            mavros_msgs::PositionTarget::IGNORE_PY |
-            mavros_msgs::PositionTarget::IGNORE_PZ |
-            mavros_msgs::PositionTarget::IGNORE_YAW;
-    yaw_pub.publish(yaw_set);
-
-}
-
-
-void image_cb(const sensor_msgs::Image::ConstPtr& msg){
-    cv_bridge::CvImagePtr cv_ptr = cv_bridge::toCvCopy(msg, "bgr8");
-    cv::Mat& image = cv_ptr->image;
-
-    //显示侦测到的Apriltag码
-    cv::circle(image, pixel, 5, cv::Scalar(0, 0, 255), -1);
-    // 显示图像
-    cv::imshow("Tracking Boundary", image);
-    cv::waitKey(1);
-
-}
-int main(int argc, char **argv)
-{
-    ros::init(argc, argv, "offb_node");//初始化一个名为offb_node的ROS节点
-    setlocale(LC_ALL, "");//确保程序能够正确处理本地字符集。例如，如果程序中需要打印中文日志信息，或者处理中文路径
-    ros::NodeHandle nh;
-    ros::NodeHandle nh_private("~");
-    ros::ServiceClient arming_client = nh.serviceClient<mavros_msgs::CommandBool>
-            ("mavros/cmd/arming");
-    set_mode_client = nh.serviceClient<mavros_msgs::SetMode>
-            ("mavros/set_mode");
-    local_pos_pub = nh.advertise<geometry_msgs::PoseStamped>
-            ("mavros/setpoint_position/local", 10);
-    local_vec_pub = nh.advertise<geometry_msgs::Twist>
-            ("mavros/setpoint_velocity/cmd_vel_unstamped",10);
-    yaw_pub = nh.advertise<mavros_msgs::PositionTarget>
-            ("mavros/setpoint_raw/local",10);
-    kf_pose_pub = nh.advertise<geometry_msgs::PoseStamped>
-            ("tag/pose", 10);
-    ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>
-            ("mavros/state", 10, state_cb);
-    ros::Subscriber tag_sub = nh.subscribe<apriltag_ros::AprilTagDetectionArray>//订阅apriltag消息
-            ("tag_detections", 10, tag_cb);
-    ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>
-            ("mavros/imu/data",10,imu_cb);
-    ros::Subscriber local_pose_sub = nh.subscribe<geometry_msgs::PoseStamped>
-            ("mavros/local_position/pose", 10, local_pose_cb);
-    ros::Subscriber image_sub = nh.subscribe<sensor_msgs::Image>
-            ("/tag_detections_image", 1, image_cb);
-    ros::Subscriber kf_sub = nh.subscribe<geometry_msgs::PoseWithCovarianceStamped>
-            ("kf/estimate", 1, control_cb);
-    // ros::Subscriber ugv_sub = nh.subscribe<geometry_msgs::Twist>
-    //         ("/ugv_0/cmd_vel",10,ugv_vel_cb);
-
-
-    //the setpoint publishing rate MUST be faster than 2Hz
-    ros::Rate rate(20.0);//设置循环频率，每秒循环10次
-    pos_controll = new PID_Controller();//初始化PID控制器
-    camera2uav = new Camera2UAV();//初始化tf转换器
-    //KFTracker *kf_tracker = new KFTracker(nh, nh_private);//初始化卡尔曼滤波器
-=======
 
     //the setpoint publishing rate MUST be faster than 2Hz
     ros::Rate rate(10.0);//设置循环频率，每秒循环10次
     pos_controll = new PID_Controller();//初始化PID控制器
     camera2uav = new Camera2UAV();//初始化tf转换器
 
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
 
     // 构造相机内参
     sensor_msgs::CameraInfo cam_info;
