@@ -54,7 +54,11 @@ CMAKE_BINARY_DIR = /home/cwkj/workspace/track_vehicle4.0/build
 include apriltag_ros/CMakeFiles/_apriltag_ros_generate_messages_check_deps_AprilTagDetection.dir/progress.make
 
 apriltag_ros/CMakeFiles/_apriltag_ros_generate_messages_check_deps_AprilTagDetection:
+<<<<<<< HEAD
 	cd /home/cwkj/workspace/track_vehicle4.0/build/apriltag_ros && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py apriltag_ros /home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg geometry_msgs/Quaternion:geometry_msgs/PoseWithCovarianceStamped:geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/PoseWithCovariance:std_msgs/Header
+=======
+	cd /home/cwkj/workspace/track_vehicle4.0/build/apriltag_ros && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py apriltag_ros /home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg geometry_msgs/Quaternion:geometry_msgs/PoseWithCovariance:geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/PoseWithCovarianceStamped:std_msgs/Header
+>>>>>>> 删除了卡尔曼滤波器,修改了PID参数
 
 _apriltag_ros_generate_messages_check_deps_AprilTagDetection: apriltag_ros/CMakeFiles/_apriltag_ros_generate_messages_check_deps_AprilTagDetection
 _apriltag_ros_generate_messages_check_deps_AprilTagDetection: apriltag_ros/CMakeFiles/_apriltag_ros_generate_messages_check_deps_AprilTagDetection.dir/build.make

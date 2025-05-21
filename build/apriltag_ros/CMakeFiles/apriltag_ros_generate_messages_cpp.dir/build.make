@@ -61,10 +61,17 @@ apriltag_ros/CMakeFiles/apriltag_ros_generate_messages_cpp: /home/cwkj/workspace
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+<<<<<<< HEAD
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovarianceStamped.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovariance.msg
+=======
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovariance.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovarianceStamped.msg
+>>>>>>> 删除了卡尔曼滤波器,修改了PID参数
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetection.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cwkj/workspace/track_vehicle4.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from apriltag_ros/AprilTagDetection.msg"
@@ -73,10 +80,17 @@ apriltag_ros/CMakeFiles/apriltag_ros_generate_messages_cpp: /home/cwkj/workspace
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+<<<<<<< HEAD
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovarianceStamped.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovariance.msg
+=======
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovariance.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovarianceStamped.msg
+>>>>>>> 删除了卡尔曼滤波器,修改了PID参数
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AprilTagDetectionArray.h: /opt/ros/noetic/share/gencpp/msg.h.template
@@ -87,6 +101,7 @@ apriltag_ros/CMakeFiles/apriltag_ros_generate_messages_cpp: /home/cwkj/workspace
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/sensor_msgs/msg/RegionOfInterest.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+<<<<<<< HEAD
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovarianceStamped.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
@@ -95,6 +110,16 @@ apriltag_ros/CMakeFiles/apriltag_ros_generate_messages_cpp: /home/cwkj/workspace
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/sensor_msgs/msg/CameraInfo.msg
+=======
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovariance.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/geometry_msgs/msg/Pose.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/geometry_msgs/msg/PoseWithCovarianceStamped.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/sensor_msgs/msg/CameraInfo.msg
+/home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+>>>>>>> 删除了卡尔曼滤波器,修改了PID参数
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/gencpp/msg.h.template
 /home/cwkj/workspace/track_vehicle4.0/devel/include/apriltag_ros/AnalyzeSingleImage.h: /opt/ros/noetic/share/gencpp/srv.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cwkj/workspace/track_vehicle4.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from apriltag_ros/AnalyzeSingleImage.srv"

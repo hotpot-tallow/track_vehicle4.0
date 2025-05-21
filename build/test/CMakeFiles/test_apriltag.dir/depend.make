@@ -281,7 +281,10 @@ test/CMakeFiles/test_apriltag.dir/src/test_apriltag.cpp.o: /home/cwkj/workspace/
 test/CMakeFiles/test_apriltag.dir/src/test_apriltag.cpp.o: /home/cwkj/workspace/track_vehicle4.0/src/test/include/PID.hpp
 test/CMakeFiles/test_apriltag.dir/src/test_apriltag.cpp.o: /home/cwkj/workspace/track_vehicle4.0/src/test/include/PID_controller.h
 test/CMakeFiles/test_apriltag.dir/src/test_apriltag.cpp.o: /home/cwkj/workspace/track_vehicle4.0/src/test/include/camera2uav.h
+<<<<<<< HEAD
 test/CMakeFiles/test_apriltag.dir/src/test_apriltag.cpp.o: /home/cwkj/workspace/track_vehicle4.0/src/test/include/kf.h
+=======
+>>>>>>> 删除了卡尔曼滤波器,修改了PID参数
 test/CMakeFiles/test_apriltag.dir/src/test_apriltag.cpp.o: /home/cwkj/workspace/track_vehicle4.0/src/test/src/test_apriltag.cpp
 test/CMakeFiles/test_apriltag.dir/src/test_apriltag.cpp.o: /opt/ros/noetic/include/cv_bridge/cv_bridge.h
 test/CMakeFiles/test_apriltag.dir/src/test_apriltag.cpp.o: /opt/ros/noetic/include/geometry_msgs/Point.h
