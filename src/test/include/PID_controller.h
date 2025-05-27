@@ -11,6 +11,7 @@
 #include "Eigen/Dense"
 
 #include <geometry_msgs/TwistStamped.h>
+#include <mavros_msgs/PositionTarget.h>
 
 class PID_Controller {
 private:
@@ -25,7 +26,7 @@ private:
 public:
     PID_Controller();//构造函数赋初值
     ~PID_Controller();//析构函数重置
-    geometry_msgs::Twist control(double error_x,double error_y,double error_z);
+    mavros_msgs::PositionTarget control(double error_x,double error_y,double error_z);
 };
 
 

@@ -19,29 +19,17 @@ add_custom_target(apriltag_ros_generate_messages ALL)
 
 get_filename_component(_filename "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg" NAME_WE)
 add_custom_target(_apriltag_ros_generate_messages_check_deps_${_filename}
-<<<<<<< HEAD
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "apriltag_ros" "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg" "geometry_msgs/Quaternion:geometry_msgs/PoseWithCovarianceStamped:geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/PoseWithCovariance:std_msgs/Header"
-=======
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "apriltag_ros" "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg" "geometry_msgs/Quaternion:geometry_msgs/PoseWithCovariance:geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/PoseWithCovarianceStamped:std_msgs/Header"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "apriltag_ros" "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg" "geometry_msgs/PoseWithCovariance:std_msgs/Header:geometry_msgs/Point:geometry_msgs/Quaternion:geometry_msgs/PoseWithCovarianceStamped:geometry_msgs/Pose"
 )
 
 get_filename_component(_filename "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg" NAME_WE)
 add_custom_target(_apriltag_ros_generate_messages_check_deps_${_filename}
-<<<<<<< HEAD
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "apriltag_ros" "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg" "geometry_msgs/Quaternion:geometry_msgs/PoseWithCovarianceStamped:geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/PoseWithCovariance:apriltag_ros/AprilTagDetection:std_msgs/Header"
-=======
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "apriltag_ros" "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg" "geometry_msgs/Quaternion:geometry_msgs/PoseWithCovariance:geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/PoseWithCovarianceStamped:apriltag_ros/AprilTagDetection:std_msgs/Header"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "apriltag_ros" "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg" "geometry_msgs/PoseWithCovariance:std_msgs/Header:geometry_msgs/Point:geometry_msgs/Quaternion:apriltag_ros/AprilTagDetection:geometry_msgs/PoseWithCovarianceStamped:geometry_msgs/Pose"
 )
 
 get_filename_component(_filename "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv" NAME_WE)
 add_custom_target(_apriltag_ros_generate_messages_check_deps_${_filename}
-<<<<<<< HEAD
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "apriltag_ros" "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv" "sensor_msgs/RegionOfInterest:geometry_msgs/Quaternion:geometry_msgs/PoseWithCovarianceStamped:geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/PoseWithCovariance:apriltag_ros/AprilTagDetectionArray:apriltag_ros/AprilTagDetection:std_msgs/Header:sensor_msgs/CameraInfo"
-=======
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "apriltag_ros" "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv" "sensor_msgs/RegionOfInterest:geometry_msgs/Quaternion:geometry_msgs/PoseWithCovariance:geometry_msgs/Pose:apriltag_ros/AprilTagDetectionArray:geometry_msgs/Point:geometry_msgs/PoseWithCovarianceStamped:apriltag_ros/AprilTagDetection:sensor_msgs/CameraInfo:std_msgs/Header"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "apriltag_ros" "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv" "sensor_msgs/CameraInfo:geometry_msgs/PoseWithCovariance:std_msgs/Header:geometry_msgs/Point:geometry_msgs/Quaternion:apriltag_ros/AprilTagDetection:geometry_msgs/PoseWithCovarianceStamped:geometry_msgs/Pose:apriltag_ros/AprilTagDetectionArray:sensor_msgs/RegionOfInterest"
 )
 
 #
@@ -53,21 +41,13 @@ add_custom_target(_apriltag_ros_generate_messages_check_deps_${_filename}
 _generate_msg_cpp(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/apriltag_ros
 )
 _generate_msg_cpp(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/apriltag_ros
 )
 
@@ -75,11 +55,7 @@ _generate_msg_cpp(apriltag_ros
 _generate_srv_cpp(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg"
-=======
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/apriltag_ros
 )
 
@@ -114,21 +90,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS apriltag_ros_generate_messages_cpp)
 _generate_msg_eus(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/apriltag_ros
 )
 _generate_msg_eus(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/apriltag_ros
 )
 
@@ -136,11 +104,7 @@ _generate_msg_eus(apriltag_ros
 _generate_srv_eus(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg"
-=======
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/apriltag_ros
 )
 
@@ -175,21 +139,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS apriltag_ros_generate_messages_eus)
 _generate_msg_lisp(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/apriltag_ros
 )
 _generate_msg_lisp(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/apriltag_ros
 )
 
@@ -197,11 +153,7 @@ _generate_msg_lisp(apriltag_ros
 _generate_srv_lisp(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg"
-=======
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/apriltag_ros
 )
 
@@ -236,21 +188,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS apriltag_ros_generate_messages_lisp
 _generate_msg_nodejs(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/apriltag_ros
 )
 _generate_msg_nodejs(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/apriltag_ros
 )
 
@@ -258,11 +202,7 @@ _generate_msg_nodejs(apriltag_ros
 _generate_srv_nodejs(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg"
-=======
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/apriltag_ros
 )
 
@@ -297,21 +237,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS apriltag_ros_generate_messages_node
 _generate_msg_py(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/apriltag_ros
 )
 _generate_msg_py(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
-=======
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/apriltag_ros
 )
 
@@ -319,11 +251,7 @@ _generate_msg_py(apriltag_ros
 _generate_srv_py(apriltag_ros
   "/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/srv/AnalyzeSingleImage.srv"
   "${MSG_I_FLAGS}"
-<<<<<<< HEAD
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg"
-=======
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
->>>>>>> 删除了卡尔曼滤波器,修改了PID参数
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/CameraInfo.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetection.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/cwkj/workspace/track_vehicle4.0/src/apriltag_ros/msg/AprilTagDetectionArray.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/apriltag_ros
 )
 

@@ -143,10 +143,12 @@ include
 add_executable(mytest
  src/mytest.cpp
  src/PID_controller.cpp
+ src/camera2uav.cpp
  )
 add_executable(test_apriltag
  src/test_apriltag.cpp
  src/PID_controller.cpp
+ src/camera2uav.cpp
  )
 add_executable(kf_tracker_node
  src/kf_tracker_node.cpp

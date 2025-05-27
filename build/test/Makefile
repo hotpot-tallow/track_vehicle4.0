@@ -692,6 +692,36 @@ src/PID_controller.cpp.s:
 	cd /home/cwkj/workspace/track_vehicle4.0/build && $(MAKE) -f test/CMakeFiles/mytest.dir/build.make test/CMakeFiles/mytest.dir/src/PID_controller.cpp.s
 .PHONY : src/PID_controller.cpp.s
 
+src/camera2uav.o: src/camera2uav.cpp.o
+
+.PHONY : src/camera2uav.o
+
+# target to build an object file
+src/camera2uav.cpp.o:
+	cd /home/cwkj/workspace/track_vehicle4.0/build && $(MAKE) -f test/CMakeFiles/test_apriltag.dir/build.make test/CMakeFiles/test_apriltag.dir/src/camera2uav.cpp.o
+	cd /home/cwkj/workspace/track_vehicle4.0/build && $(MAKE) -f test/CMakeFiles/mytest.dir/build.make test/CMakeFiles/mytest.dir/src/camera2uav.cpp.o
+.PHONY : src/camera2uav.cpp.o
+
+src/camera2uav.i: src/camera2uav.cpp.i
+
+.PHONY : src/camera2uav.i
+
+# target to preprocess a source file
+src/camera2uav.cpp.i:
+	cd /home/cwkj/workspace/track_vehicle4.0/build && $(MAKE) -f test/CMakeFiles/test_apriltag.dir/build.make test/CMakeFiles/test_apriltag.dir/src/camera2uav.cpp.i
+	cd /home/cwkj/workspace/track_vehicle4.0/build && $(MAKE) -f test/CMakeFiles/mytest.dir/build.make test/CMakeFiles/mytest.dir/src/camera2uav.cpp.i
+.PHONY : src/camera2uav.cpp.i
+
+src/camera2uav.s: src/camera2uav.cpp.s
+
+.PHONY : src/camera2uav.s
+
+# target to generate assembly for a file
+src/camera2uav.cpp.s:
+	cd /home/cwkj/workspace/track_vehicle4.0/build && $(MAKE) -f test/CMakeFiles/test_apriltag.dir/build.make test/CMakeFiles/test_apriltag.dir/src/camera2uav.cpp.s
+	cd /home/cwkj/workspace/track_vehicle4.0/build && $(MAKE) -f test/CMakeFiles/mytest.dir/build.make test/CMakeFiles/mytest.dir/src/camera2uav.cpp.s
+.PHONY : src/camera2uav.cpp.s
+
 src/kf.o: src/kf.cpp.o
 
 .PHONY : src/kf.o
@@ -849,6 +879,9 @@ help:
 	@echo "... src/PID_controller.o"
 	@echo "... src/PID_controller.i"
 	@echo "... src/PID_controller.s"
+	@echo "... src/camera2uav.o"
+	@echo "... src/camera2uav.i"
+	@echo "... src/camera2uav.s"
 	@echo "... src/kf.o"
 	@echo "... src/kf.i"
 	@echo "... src/kf.s"

@@ -105,6 +105,18 @@ void yaw_adjustment(mavros_msgs::PositionTarget& yaw_set,const double& yaw_angle
     }
 }
 
+void uav_control(mavros_msgs::PositionTarget& yaw_set){
+    yaw_set.coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
+    yaw_set.type_mask = 
+            mavros_msgs::PositionTarget::IGNORE_AFX |
+            mavros_msgs::PositionTarget::IGNORE_AFY |
+            mavros_msgs::PositionTarget::IGNORE_AFZ |
+            mavros_msgs::PositionTarget::IGNORE_PX |
+            mavros_msgs::PositionTarget::IGNORE_PY |
+            mavros_msgs::PositionTarget::IGNORE_PZ |
+            mavros_msgs::PositionTarget::IGNORE_YAW;
+    yaw_pub.publish(yaw_set);
+}
 //apriltag码订阅回调函数
 void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg) 
 {
@@ -186,30 +198,23 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArray::ConstPtr& msg)
                 pitch = euler_angles[1];
                 roll = euler_angles[2];
                 yaw_angle = yaw * (180 / M_PI);
-                ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
+                //ROS_INFO("目标的yaw_angle偏航:%.3f",yaw_angle);
                 if (fabs(yaw_angle) > 8 || fabs(yaw_angle) < 172){
                 yaw_adjustment(yaw_set,yaw_angle) ; 
                 }
-                speed_set = pos_controll->control(error_x,error_y,0); 
-                speed_set.linear.x += uav_last_velx;
-                speed_set.linear.y += uav_last_vely; 
-                uav_last_velx = speed_set.linear.x;
-                uav_last_vely = speed_set.linear.y;
-                yaw_set.velocity.x = speed_set.linear.x;
-                yaw_set.velocity.y = speed_set.linear.y;
-                ROS_INFO("无人机速度,x = %.3f,y = %.3f",yaw_set.velocity.x,yaw_set.velocity.y);
-                yaw_set.coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
-                yaw_set.type_mask = 
-                        mavros_msgs::PositionTarget::IGNORE_AFX |
-                        mavros_msgs::PositionTarget::IGNORE_AFY |
-                        mavros_msgs::PositionTarget::IGNORE_AFZ |
-                        mavros_msgs::PositionTarget::IGNORE_PX |
-                        mavros_msgs::PositionTarget::IGNORE_PY |
-                        mavros_msgs::PositionTarget::IGNORE_PZ |
-                        mavros_msgs::PositionTarget::IGNORE_YAW;
-                yaw_pub.publish(yaw_set);
+                yaw_set = pos_controll->control(error_x,error_y,0); 
+
+                ROS_INFO("CRUISE无人机速度,x = %.3f,y = %.3f,z = %.3f",yaw_set.velocity.x,yaw_set.velocity.y,yaw_set.velocity.z);
+                uav_control(yaw_set);
                 //local_vec_pub.publish(speed_set);
                 last_find_time = ros::Time::now();
+                if(sqrt(x*x + y*y) < 2 && yaw_set.velocity.x >= 2){
+                    number += 1;
+                    if(number > 20){
+                       current_state = DESCEND; 
+                       number = 0;
+                    }
+                }
                 break; 
             }
         }

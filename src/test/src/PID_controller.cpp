@@ -70,7 +70,7 @@ PID_Controller::PID_Controller() {
     offset_docking_z = temp;
 }
 
-geometry_msgs::Twist PID_Controller::control(double error_x,double error_y,double error_z) 
+mavros_msgs::PositionTarget PID_Controller::control(double error_x,double error_y,double error_z) 
 {
 
     static uint8_t control_step = 0;
@@ -107,10 +107,10 @@ geometry_msgs::Twist PID_Controller::control(double error_x,double error_y,doubl
     //    default:
     //        break;
     // }
-    geometry_msgs::Twist set_speed;
-    set_speed.linear.x = velocity_x;
-    set_speed.linear.y = velocity_y;
-    set_speed.linear.z = velocity_z;
+    mavros_msgs::PositionTarget set_speed;
+    set_speed.velocity.x = velocity_x;
+    set_speed.velocity.y = velocity_y;
+    set_speed.velocity.z = velocity_z;
 
     // set_speed.angular.z = velocity_yaw;
     return set_speed;
